@@ -38,7 +38,7 @@ func SetupRoutes() {
 	})
 
 	// GET & PUT & DELETE /api/categorie/{id}
-	http.HandleFunc("/api/categorie/", func(w http.ResponseWriter, r *http.Request) {
+	http.HandleFunc("/api/categories/", func(w http.ResponseWriter, r *http.Request) {
 		if r.Method == "GET" {
 			handler.GetCategorieByID(w, r)
 		} else if r.Method == "PUT" {

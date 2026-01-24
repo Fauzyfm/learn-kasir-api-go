@@ -33,7 +33,7 @@ func CreateCategories(w http.ResponseWriter, r *http.Request) {
 
 // GetCategorieByID - handler untuk GET /api/categorie/{id}
 func GetCategorieByID(w http.ResponseWriter, r *http.Request) {
-	idStr := strings.TrimPrefix(r.URL.Path, "/api/categorie/")
+	idStr := strings.TrimPrefix(r.URL.Path, "/api/categories/")
 	id, err := strconv.Atoi(idStr)
 	if err != nil {
 		http.Error(w, "Invalid Product ID", http.StatusBadRequest)
@@ -52,7 +52,7 @@ func GetCategorieByID(w http.ResponseWriter, r *http.Request) {
 
 // UpdateCategorie - handler untuk PUT /api/categorie/{id}
 func UpdateCategorie(w http.ResponseWriter, r *http.Request) {
-	idStr := strings.TrimPrefix(r.URL.Path, "/api/categorie/")
+	idStr := strings.TrimPrefix(r.URL.Path, "/api/categories/")
 	id, err := strconv.Atoi(idStr)
 	if err != nil {
 		http.Error(w, "Invalid Product ID", http.StatusBadRequest)
@@ -75,7 +75,7 @@ func UpdateCategorie(w http.ResponseWriter, r *http.Request) {
 
 // DeleteCategorie - handler untuk DELETE /api/categorie/{id}
 func DeleteCategorie(w http.ResponseWriter, r *http.Request) {
-	idStr := strings.TrimPrefix(r.URL.Path, "/api/categorie/")
+	idStr := strings.TrimPrefix(r.URL.Path, "/api/categories/")
 	id, err := strconv.Atoi(idStr)
 	if err != nil {
 		http.Error(w, "Invalid Product ID", http.StatusBadRequest)
