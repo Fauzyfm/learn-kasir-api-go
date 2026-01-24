@@ -25,7 +25,7 @@ func GetAllProducts() []models.Product {
 
 // CreateProduct - membuat product baru
 func CreateProduct(product models.Product) models.Product {
-	product.ID = GetNextID()
+	product.ID = GetNextIDProducts()
 	Products = append(Products, product)
 	return product
 }
@@ -54,7 +54,7 @@ func DeleteProduct(id int) bool {
 }
 
 // GetNextID - mendapatkan ID terbaru
-func GetNextID() int {
+func GetNextIDProducts() int {
 	maxID := 0
 	for _, p := range Products {
 		if p.ID > maxID {
@@ -63,3 +63,4 @@ func GetNextID() int {
 	}
 	return maxID + 1
 }
+

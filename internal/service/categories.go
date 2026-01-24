@@ -15,7 +15,7 @@ func GetAllCategories() []models.Categories {
 }
 
 func CreateCategories(categorie models.Categories) models.Categories {
-	categorie.ID = GetNextID()
+	categorie.ID = GetNextIDCategories()
 	Categories = append(Categories, categorie)
 	return categorie
 }
@@ -48,4 +48,14 @@ func DeleteCategorie(id int) bool {
 		}
 	}
 	return false
+}
+
+func GetNextIDCategories() int {
+	maxID := 0
+	for _, c := range Categories {
+		if c.ID > maxID {
+			maxID = c.ID
+		}
+	}
+	return maxID + 1
 }
