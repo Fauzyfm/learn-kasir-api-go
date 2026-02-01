@@ -1,0 +1,72 @@
+# Git files
+.git
+.gitignore
+.gitattributes
+
+# Documentation
+README.md
+CHANGELOG.md
+LICENSE
+docs/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Build artifacts
+*.exe
+kasir-api
+dist/
+build/
+
+# Docker files (to avoid recursive copy)
+Dockerfile*
+docker-compose*
+.dockerignore
+
+# Environment files (sensitive data)
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Test files
+*_test.go
+coverage.out
+coverage.html
+
+# Vendor directory
+vendor/
+
+# Node modules (if any)
+node_modules/
+
+# Cache directories
+.cache/
+.parcel-cache/
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Backup files
+*.bak
+*.backup
