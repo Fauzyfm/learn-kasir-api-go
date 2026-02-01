@@ -38,9 +38,6 @@ WORKDIR /app
 # Copy binary from builder stage
 COPY --from=builder /app/kasir-api .
 
-# Copy .env file if exists (for local development)
-COPY --from=builder /app/.env . 2>/dev/null || true
-
 # Change ownership to non-root user
 RUN chown -R appuser:appgroup /app
 
