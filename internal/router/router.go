@@ -7,7 +7,7 @@ import (
 )
 
 // SetupRoutes - mengatur semua routes untuk API
-func SetupRoutes(productHandler *handler.ProductHandler, categoryHandler *handler.CategoryHandler) {
+func SetupRoutes(productHandler *handler.ProductHandler, categoryHandler *handler.CategoryHandler, transactionHandler *handler.TransactionHandler, reportHandler *handler.ReportHandler) {
 	// GET & PUT & DELETE /api/product/{id}
 	http.HandleFunc("/api/product/", func(w http.ResponseWriter, r *http.Request) {
 		if r.Method == "GET" {
@@ -49,12 +49,30 @@ func SetupRoutes(productHandler *handler.ProductHandler, categoryHandler *handle
 
 	})
 
-
 	http.HandleFunc("/api/products/detail/", func(w http.ResponseWriter, r *http.Request) {
-        if r.Method == "GET" {
-            productHandler.GetProductDetail(w, r)
-        }
-    })
+		if r.Method == "GET" {
+			productHandler.GetProductDetail(w, r)
+		}
+	})
+
+	// POST /api/checkout
+	http.HandleFunc("/api/checkout", func(w http.ResponseWriter, r *http.Request) {
+		if r.Method == "POST" {
+			transactionHandler.HandleCheckout(w, r)
+		}
+	})
+
+	// GET /api/report
+	http.HandleFunc("/api/report", func(w http.ResponseWriter, r *http.Request) {
+		if r.Method == "GET" {
+			reportHandler.HandleReport(w, r)
+		}
+	})
+
+	// GET /api/report/hari-ini
+	http.HandleFunc("/api/report/hari-ini", func(w http.ResponseWriter, r *http.Request) {
+		if r.Method == "GET" {
+			reportHandler.HandleReport(w, r)
+		}
+	})
 }
-
-

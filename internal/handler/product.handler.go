@@ -2,6 +2,7 @@ package handler
 
 import (
 	"encoding/json"
+	"fmt"
 	"kasir-api/internal/models"
 	"kasir-api/internal/service"
 	"net/http"
@@ -32,7 +33,9 @@ func (h *ProductHandler) HandleProduct(w http.ResponseWriter, r *http.Request) {
 
 
 func (h *ProductHandler) GetAllProducts(w http.ResponseWriter, r *http.Request) {
-	product, err := h.service.GetAllProducts()
+	name := r.URL.Query().Get("name")
+	fmt.Println(name)
+	product, err := h.service.GetAllProducts(name)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
